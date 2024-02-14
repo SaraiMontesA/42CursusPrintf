@@ -1,3 +1,5 @@
+#include "ft_printf.h"	// Para utilizar las funciones de la librería ft_printf
+#include <stdio.h>		// Para printf
 
 // ############### AQUÍ VAN LAS FUNCIONES QUE HACEN LOS TESTS ###############
 
