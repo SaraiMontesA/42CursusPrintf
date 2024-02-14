@@ -47,6 +47,7 @@ int	ft_print_number(int n)
 		size += ft_print_unsigned((unsigned int)n);
 	return (size);
 }
+
 // Function for print an unsigned number
 int	ft_print_unsigned(unsigned int n)
 {

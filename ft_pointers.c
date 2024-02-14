@@ -15,6 +15,7 @@
 static int	ft_length_pointer(unsigned long long ptr);
 
 static void	ft_search_pointer(unsigned long long ptr);
+
 // Function for print a pointer
 int	ft_print_pointer(unsigned long long ptr)
 {
@@ -31,6 +32,7 @@ int	ft_print_pointer(unsigned long long ptr)
 	}
 	return (size);
 }
+
 // Function for length of the pointer
 static int	ft_length_pointer(unsigned long long ptr)
 {
@@ -44,6 +46,7 @@ static int	ft_length_pointer(unsigned long long ptr)
 	}
 	return (len);
 }
+
 // Function for search the pointer
 static void	ft_search_pointer(unsigned long long ptr)
 {

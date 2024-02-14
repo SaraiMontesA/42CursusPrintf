@@ -25,6 +25,7 @@ int	ft_print_hexadecimal(unsigned int num, const char word)
 		ft_search_hexadecimal(num, word);
 	return (ft_length_hexadecimal(num));
 }
+
 // Function for search the hexadecimal number
 static void	ft_search_hexadecimal(unsigned int num, const char word)
 {
@@ -46,6 +47,7 @@ static void	ft_search_hexadecimal(unsigned int num, const char word)
 		}
 	}
 }
+
 // Function for length of the hexadecimal number
 static int	ft_length_hexadecimal(unsigned int num)
 {
