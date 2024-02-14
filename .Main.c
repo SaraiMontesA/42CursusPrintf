@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> Mi_primera_rama
-
 
 // ############### AQUÍ VAN LAS FUNCIONES QUE HACEN LOS TESTS ###############
 
