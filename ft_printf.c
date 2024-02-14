@@ -6,7 +6,7 @@
 /*   By: sarmonte <sarmonte@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 12:34:13 by sarmonte          #+#    #+#             */
-/*   Updated: 2024/02/14 12:56:25 by sarmonte         ###   ########.fr       */
+/*   Updated: 2024/02/14 23:02:42 by sarmonte         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -70,7 +70,6 @@ static int	ft_select_format(va_list argument, const char word)
 	return (size);
 }
 
-/*
 // This function select the format of arguments after '\'
 static int	ft_select_format2(va_list argument, const char word)
 {
@@ -93,4 +92,5 @@ static int	ft_select_format2(va_list argument, const char word)
 		size += ft_print_character(word);
 	return (size);
 }
+/*
 */

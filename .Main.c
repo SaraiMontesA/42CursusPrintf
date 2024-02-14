@@ -1,7 +1,20 @@
+/******************************************************************************/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   .Main.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sarmonte <sarmonte@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/14 22:46:50 by sarmonte          #+#    #+#             */
+/*   Updated: 2024/02/14 23:15:55 by sarmonte         ###   ########.fr       */
+/*                                                                            */
+/******************************************************************************/
+
+// ############### AQUÍ VAN LAS LIBRERÍAS QUE SE USARÁN ########################
 #include "ft_printf.h"	// Para utilizar las funciones de la librería ft_printf
 #include <stdio.h>		// Para printf
 
-// ############### AQUÍ VAN LAS FUNCIONES QUE HACEN LOS TESTS ###############
+// ############### AQUÍ VAN LAS FUNCIONES QUE HACEN LOS TESTS ##################
 
 /* Códigos de escape ANSI
 	Códigos de colores para el texto
@@ -134,9 +147,19 @@ int	ft_test_pointer(char *nombre, char *value, char *pointer, char *sep)
 }
 
 // Test para %%
-	// FALTA POR HACER ################################################################################################
+int	ft_test_percent(char *nombre, char *value, char *sep)
+{
+	printf("\033[0;34m%-12s --> \033[0;36m%-15s \033[0;34m--> \033[0m", nombre, value);
+	fflush(stdout);
+	if (printf("%%%s\033[0;34m -->\033[0m ", sep)
+		== ft_printf("%%%s\033[0;34m -->\033[0m ", sep))
+		printf("\033[0;32mOK\033[0m\n");
+	else
+		printf("\033[0;31mKO\033[0m\n");
+	return (0);
+}
 
-// ############### AQUÍ VAN LAS FUNCIONES QUE LLAMAN A LOS TESTS ############
+// ############### AQUÍ VAN LAS FUNCIONES QUE LLAMAN A LOS TESTS ###############
 
 //ft_printf_tests_string();		// %s
 void	ft_printf_tests_string(void)
@@ -376,8 +399,18 @@ void	ft_printf_tests_pointer(void)
 }
 
 //ft_printf_tests_percent();	// %%
+void	ft_printf_tests_percent(void)
+{
+	char	*value;
+	char	*sep;
 
-// ############### AQUÍ VAN LAS FUNCIONES DE ENCABEZADO Y FIRMA #############
+	sep = "\t\t\t";
+	printf("\033[0;33mTESTS OF PRINTF - %% - percent\033[0m\n");
+	value = "           ";
+	ft_test_percent("     Test1", value, sep);
+}
+
+// ############### AQUÍ VAN LAS FUNCIONES DE ENCABEZADO Y FIRMA ################
 
 // Librería para poder utilizar la función clear en el encabezado
 #include <stdlib.h>
@@ -408,11 +441,11 @@ void	ft_signature(void)
 	write(1, "\033[0m\n\n", 7);
 }
 
-// ############### AQUÍ VA EL MAIN ##########################################
+// ############### AQUÍ VA EL MAIN #############################################
 int	main(void)
 {
 	ft_title();
-
+/*
 	ft_printf_tests_string();// %s
 	ft_printf_tests_integer();// %i
 	ft_printf_tests_char();// %c
@@ -420,8 +453,9 @@ int	main(void)
 	ft_printf_tests_unsigned();// %u
 	ft_printf_tests_hex();// %x
 	ft_printf_tests_hex2();// %X
+*/
 	ft_printf_tests_pointer();// %p
-	//ft_printf_tests_percent();// %%	// FALTAN POR HACER ###########################################################
+	ft_printf_tests_percent();// %%	// FALTAN POR HACER ###########################################################
 	
 	ft_signature();
 	return (0);
