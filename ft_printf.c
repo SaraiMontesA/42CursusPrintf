@@ -20,25 +20,27 @@ int	ft_print_character(int character)
 	write(1, &character, 1);
 	return (1);
 }
-
-int	ft_print_flag(char *flag, int character)
+// Function for select flag
+int	ft_print_flag(const char flag)
 {
+	int size;
+
+	size = 0;
 	if (flag == '-')
-		return (ft_print_string("Sarai"));
+		return (ft_print_character('-'));	// Alinea a la izquierda el valor dentro del campo especificado.
 	else if (flag == 0)
-		return (ft_print_string(0));
+		return (ft_print_character(0));		// Rellena con ceros a la izquierda hasta alcanzar la anchura del campo.
 	else if (flag == '.')
-		return (ft_print_string("Sarai"));
+		return (ft_print_character('.'));	// Es complicado, consultarlo
 	else if (flag == '#')
-		return (ft_print_string("Sarai"));
+		return (ft_print_character('#'));	// Usa "forma alternativa" para ciertos tipos de formato. Por ejemplo, para %x o %X, añade un 0x o 0X al principio del número.
 	else if (flag == ' ')
-		return (ft_print_string("Sarai"));
-	else if (flag == "+")
-		printf("Pruebas");	
-		//return (ft_print_string("Sarai"));
+		return (ft_print_character(' '));	// Inserta un espacio antes del número si no se muestra el signo.
+	else if (flag == '+')
+		size += (ft_print_character('+'));	// Obliga a printf a mostrar siempre el signo de un número. 
 	else
-		write(1, &character, 1);
-	return (1);
+		write(1, &flag, 1);
+	return (size);
 }
 
 // Function principal for print the string
@@ -59,7 +61,9 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-			size += ft_print_character("normal", str[i]);
+		{
+			size += ft_print_character(str[i]);
+		}
 		i++;
 	}
 	va_end(argument);
@@ -72,9 +76,8 @@ static int	ft_select_format(va_list argument, const char word)
 	int	size;
 
 	size = 0;
-	if (word == '+')
-		printf("pruebitas");
-		//size += ft_print_flag(word, va_arg(argument, int));
+	if (word == '-' || word == '0' || word == '.' || word == '#' || word == ' ' || word == '+')
+		size += ft_print_flag(word);
 	else if (word == 'c')
 		size += ft_print_character(va_arg(argument, int));
 	else if (word == 's')

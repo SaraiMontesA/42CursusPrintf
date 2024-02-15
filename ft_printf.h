@@ -20,6 +20,7 @@
 // It is used to handle variable number of function arguments.
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdio.h> // FALTA QUITAR, ES SOLO PARA PRUEBAS CON MENSAJES POR PANTALLA ##########
 
 /* #########################################	
 // #    LIST OF FUNCTIONS                  #

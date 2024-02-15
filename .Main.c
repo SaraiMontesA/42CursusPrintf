@@ -459,9 +459,9 @@ int	main(void)
 	printf("\n\033[0;33m---------------------------------------- BONUS ----------------------------------------\n\033[0m\n");
 	ft_printf_tests_sharp();// %#
 	fflush(stdout);
-	printf("\n\n%+i\n\n", 42);
+	printf("\n\n%-i\n\n", 42);
 	fflush(stdout);
-	ft_printf("\n\n%+i\n\n", 42);
+	ft_printf("\n\n%0i\n\n", 42);
 	fflush(stdout);
 	
 	ft_signature();
