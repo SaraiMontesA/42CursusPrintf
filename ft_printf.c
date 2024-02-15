@@ -6,19 +6,38 @@
 /*   By: sarmonte <sarmonte@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 12:34:13 by sarmonte          #+#    #+#             */
-/*   Updated: 2024/02/14 23:02:42 by sarmonte         ###   ########.fr       */
+/*   Updated: 2024/02/15 01:35:06 by sarmonte         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "ft_printf.h"
 
 static int	ft_select_format(va_list argument, const char word);
-//static int	ft_select_format2(va_list argument, const char word);
 
 // Function for print one character
 int	ft_print_character(int character)
 {
 	write(1, &character, 1);
+	return (1);
+}
+
+int	ft_print_flag(char *flag, int character)
+{
+	if (flag == '-')
+		return (ft_print_string("Sarai"));
+	else if (flag == 0)
+		return (ft_print_string(0));
+	else if (flag == '.')
+		return (ft_print_string("Sarai"));
+	else if (flag == '#')
+		return (ft_print_string("Sarai"));
+	else if (flag == ' ')
+		return (ft_print_string("Sarai"));
+	else if (flag == "+")
+		printf("Pruebas");	
+		//return (ft_print_string("Sarai"));
+	else
+		write(1, &character, 1);
 	return (1);
 }
 
@@ -40,7 +59,7 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-			size += ft_print_character(str[i]);
+			size += ft_print_character("normal", str[i]);
 		i++;
 	}
 	va_end(argument);
@@ -53,7 +72,10 @@ static int	ft_select_format(va_list argument, const char word)
 	int	size;
 
 	size = 0;
-	if (word == 'c')
+	if (word == '+')
+		printf("pruebitas");
+		//size += ft_print_flag(word, va_arg(argument, int));
+	else if (word == 'c')
 		size += ft_print_character(va_arg(argument, int));
 	else if (word == 's')
 		size += ft_print_string(va_arg(argument, char *));
@@ -70,27 +92,3 @@ static int	ft_select_format(va_list argument, const char word)
 	return (size);
 }
 
-// This function select the format of arguments after '\'
-static int	ft_select_format2(va_list argument, const char word)
-{
-	int	size;
-
-	size = 0;
-	if (word == '0')
-		size += ft_print_character(va_arg(argument, int));
-	else if (word == 'n')
-		size += ft_print_s_string(va_arg(argument, char *));
-	else if (word == 't')
-		size += ft_print_pointer(va_arg(argument, unsigned long long));
-	else if (word == 'r' || word == 'e')
-		size += ft_print_number(va_arg(argument, int));
-	else if (word == 'w')
-		size += ft_print_unsigned(va_arg(argument, unsigned int));
-	else if (word == 'q' || word == 'z')
-		size += ft_print_hexadecimal(va_arg(argument, unsigned int), word);
-	else
-		size += ft_print_character(word);
-	return (size);
-}
-/*
-*/

@@ -6,7 +6,7 @@
 /*   By: sarmonte <sarmonte@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 22:46:50 by sarmonte          #+#    #+#             */
-/*   Updated: 2024/02/14 23:15:55 by sarmonte         ###   ########.fr       */
+/*   Updated: 2024/02/15 01:35:41 by sarmonte         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -86,6 +86,7 @@ int	ft_test_decimal(char *nombre, char *value, int dec, char *sep)
 {
 	printf("\033[0;34m%-12s --> \033[0;36m%-15s \033[0;34m--> \033[0m", nombre, value);
 	fflush(stdout);
+
 	if (printf("%d%s \033[0;34m-->\033[0m ", dec, sep)
 		== ft_printf("%d%s \033[0;34m-->\033[0m ", dec, sep))
 		printf("\033[0;32mOK\033[0m\n");
@@ -159,6 +160,18 @@ int	ft_test_percent(char *nombre, char *value, char *sep)
 	return (0);
 }
 
+// Test para %#
+int	ft_test_sharp(char *nombre, char *value, char *sep)
+{
+	printf("\033[0;34m%-12s --> \033[0;36m%-15s \033[0;34m--> \033[0m", nombre, value);
+	fflush(stdout);
+	if (printf("#%s\033[0;34m -->\033[0m ", sep)
+		== ft_printf("#%s\033[0;34m -->\033[0m ", sep))
+		printf("\033[0;32mOK\033[0m\n");
+	else
+		printf("\033[0;31mKO\033[0m\n");
+	return (0);
+}
 // ############### AQUÍ VAN LAS FUNCIONES QUE LLAMAN A LOS TESTS ###############
 
 //ft_printf_tests_string();		// %s
@@ -169,12 +182,12 @@ void	ft_printf_tests_string(void)
 	char	*sep;
 
 	printf("\033[0;33mTESTS OF PRINTF - s - string\033[0m\n");
-	str = "";
-	value = "";
+	str = "+";
+	value = "+";
 	sep = "\t\t\t ";
 	ft_test_string("     Test1", value, str, sep);
-	str = "Hello world";
-	value = "Hello world";
+	str = "Sarai Montes";
+	value = "Sarai Montes";
 	sep = "\t ";
 	ft_test_string("     Test2", value, str, sep);
 	str = "%s";
@@ -207,18 +220,14 @@ void	ft_printf_tests_integer(void)
 	value = "-42        ";
 	sep = "\t\t";
 	ft_test_integer("     Test2", value, num, sep);
-	num = 4242;
-	value = "4242";
-	sep = "\t\t";
-	ft_test_integer("     Test3", value, num, sep);
 	num = 2147483647;
 	value = "2147483647";
 	sep = "\t\t";
-	ft_test_integer("     Test4", value, num, sep);
+	ft_test_integer("     Test3", value, num, sep);
 	num = 'S';
-	value = "S          ";
+	value = "S";
 	sep = "\t\t\t";
-	ft_test_integer("     Test5", value, num, sep);
+	ft_test_integer("     Test4", value, num, sep);
 }
 
 //ft_printf_tests_char();		// %c
@@ -233,8 +242,8 @@ void	ft_printf_tests_char(void)
 	c = 'S';
 	value = "S          ";
 	ft_test_char("     Test1", value, c, sep);
-	c = 'a';
-	value = "a          ";
+	c = '7';
+	value = "7          ";
 	ft_test_char("     Test2", value, c, sep);
 	c = '\\';
 	value = "\\          ";
@@ -264,18 +273,14 @@ void	ft_printf_tests_decimal(void)
 	value = "-42        ";
 	sep = "\t\t";
 	ft_test_decimal("     Test2", value, num, sep);
-	num = 4242;
-	value = "4242       ";
+	num = 2147483647;
+	value = "2147483647";
 	sep = "\t\t";
 	ft_test_decimal("     Test3", value, num, sep);
-	num = 2147483647;
-	value = "2147483647 ";
-	sep = "\t\t";
-	ft_test_decimal("     Test4", value, num, sep);
 	num = 'S';
-	value = "S          ";
+	value = "S";
 	sep = "\t\t\t";
-	ft_test_decimal("     Test5", value, num, sep);
+	ft_test_decimal("     Test4", value, num, sep);
 }
 
 //ft_printf_tests_unsigned();	// %u
@@ -294,18 +299,14 @@ void	ft_printf_tests_unsigned(void)
 	value = "-42        ";
 	sep = "\t\t";
 	ft_test_unsigned("     Test2", value, num, sep);
-	num = 4242;
-	value = "4242       ";
+	num = 2147483647;
+	value = "2147483647";
 	sep = "\t\t";
 	ft_test_unsigned("     Test3", value, num, sep);
-	num = 2147483647;
-	value = "2147483647 ";
-	sep = "\t\t";
-	ft_test_unsigned("     Test4", value, num, sep);
 	num = 'S';
-	value = "S          ";
+	value = "S";
 	sep = "\t\t\t";
-	ft_test_unsigned("     Test5", value, num, sep);
+	ft_test_unsigned("     Test4", value, num, sep);
 }
 
 //ft_printf_tests_hex();		// %x
@@ -324,18 +325,14 @@ void	ft_printf_tests_hex(void)
 	value = "-42        ";
 	sep = "\t\t";
 	ft_test_hex("     Test2", value, hex_num, sep);
-	hex_num = 4242;
-	value = "4242       ";
+	hex_num = 2147483647;
+	value = "2147483647";
 	sep = "\t\t";
 	ft_test_hex("     Test3", value, hex_num, sep);
-	hex_num = 2147483647;
-	value = "2147483647 ";
-	sep = "\t\t";
-	ft_test_hex("     Test4", value, hex_num, sep);
 	hex_num = 'S';
-	value = "S          ";
+	value = "S ";
 	sep = "\t\t\t";
-	ft_test_hex("     Test5", value, hex_num, sep);
+	ft_test_hex("     Test4", value, hex_num, sep);
 }
 
 //ft_printf_tests_hex2();		// %X
@@ -354,18 +351,14 @@ void	ft_printf_tests_hex2(void)
 	value = "-42        ";
 	sep = "\t\t";
 	ft_test_hex2("     Test2", value, hex_num2, sep);
-	hex_num2 = 4242;
-	value = "4242       ";
+	hex_num2 = 2147483647;
+	value = "2147483647";
 	sep = "\t\t";
 	ft_test_hex2("     Test3", value, hex_num2, sep);
-	hex_num2 = 2147483647;
-	value = "2147483647 ";
-	sep = "\t\t";
-	ft_test_hex2("     Test4", value, hex_num2, sep);
 	hex_num2 = 'S';
-	value = "S          ";
+	value = "S";
 	sep = "\t\t\t";
-	ft_test_hex2("     Test5", value, hex_num2, sep);
+	ft_test_hex2("     Test4", value, hex_num2, sep);
 }
 
 //ft_printf_tests_pointer();	// %p
@@ -376,12 +369,12 @@ void	ft_printf_tests_pointer(void)
 	char	*sep;
 
 	printf("\033[0;33mTESTS OF PRINTF - p - pointer\033[0m\n");
-	str = "";
-	value = "           ";
-	sep = "\t";
-	ft_test_pointer("     Test1", value, str, sep);
 	str = "Hello world";
 	value = "Hello world";
+	sep = "\t";
+	ft_test_pointer("     Test1", value, str, sep);
+	str = "''";
+	value = "''         ";
 	sep = "\t";
 	ft_test_pointer("     Test2", value, str, sep);
 	str = "%s";
@@ -392,10 +385,6 @@ void	ft_printf_tests_pointer(void)
 	value = "\\t";
 	sep = "\t";
 	ft_test_pointer("     Test4", value, str, sep);
-	str = "''";
-	value = "''         ";
-	sep = "\t";
-	ft_test_pointer("     Test5", value, str, sep);
 }
 
 //ft_printf_tests_percent();	// %%
@@ -410,6 +399,17 @@ void	ft_printf_tests_percent(void)
 	ft_test_percent("     Test1", value, sep);
 }
 
+//ft_printf_tests_sharp();		// %#
+void	ft_printf_tests_sharp(void)
+{
+	char	*value;
+	char	*sep;
+
+	sep = "\t\t\t";
+	printf("\033[0;33mTESTS OF PRINTF - # - sharp\033[0m\n");
+	value = "           ";
+	ft_test_sharp("     Test1", value, sep);
+}
 // ############### AQUÍ VAN LAS FUNCIONES DE ENCABEZADO Y FIRMA ################
 
 // Librería para poder utilizar la función clear en el encabezado
@@ -446,6 +446,7 @@ int	main(void)
 {
 	ft_title();
 /*
+*/
 	ft_printf_tests_string();// %s
 	ft_printf_tests_integer();// %i
 	ft_printf_tests_char();// %c
@@ -453,9 +454,15 @@ int	main(void)
 	ft_printf_tests_unsigned();// %u
 	ft_printf_tests_hex();// %x
 	ft_printf_tests_hex2();// %X
-*/
 	ft_printf_tests_pointer();// %p
-	ft_printf_tests_percent();// %%	// FALTAN POR HACER ###########################################################
+	ft_printf_tests_percent();// %%	
+	printf("\n\033[0;33m---------------------------------------- BONUS ----------------------------------------\n\033[0m\n");
+	ft_printf_tests_sharp();// %#
+	fflush(stdout);
+	printf("\n\n%+i\n\n", 42);
+	fflush(stdout);
+	ft_printf("\n\n%+i\n\n", 42);
+	fflush(stdout);
 	
 	ft_signature();
 	return (0);
