@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   .Main.c                                            :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: sarmonte <sarmonte@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 22:46:50 by sarmonte          #+#    #+#             */
-/*   Updated: 2024/02/15 01:35:41 by sarmonte         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:27:41 by sarmonte         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 // ############### AQUÍ VAN LAS LIBRERÍAS QUE SE USARÁN ########################
 #include "ft_printf.h"	// Para utilizar las funciones de la librería ft_printf
@@ -183,8 +183,7 @@ void	ft_printf_tests_string(void)
 
 	printf("\033[0;33mTESTS OF PRINTF - s - string\033[0m\n");
 	str = "+";
-	value = "+";
-	sep = "\t\t\t ";
+	value = "+";	sep = "\t\t\t ";
 	ft_test_string("     Test1", value, str, sep);
 	str = "Sarai Montes";
 	value = "Sarai Montes";
@@ -456,13 +455,6 @@ int	main(void)
 	ft_printf_tests_hex2();// %X
 	ft_printf_tests_pointer();// %p
 	ft_printf_tests_percent();// %%	
-	printf("\n\033[0;33m---------------------------------------- BONUS ----------------------------------------\n\033[0m\n");
-	ft_printf_tests_sharp();// %#
-	fflush(stdout);
-	printf("\n\n%-i\n\n", 42);
-	fflush(stdout);
-	ft_printf("\n\n%0i\n\n", 42);
-	fflush(stdout);
 	
 	ft_signature();
 	return (0);

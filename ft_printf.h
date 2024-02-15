@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: sarmonte <sarmonte@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 12:33:32 by sarmonte          #+#    #+#             */
-/*   Updated: 2024/02/14 12:43:05 by sarmonte         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:26:14 by sarmonte         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
@@ -20,7 +20,6 @@
 // It is used to handle variable number of function arguments.
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdio.h> // FALTA QUITAR, ES SOLO PARA PRUEBAS CON MENSAJES POR PANTALLA ##########
 
 /* #########################################	
 // #    LIST OF FUNCTIONS                  #
