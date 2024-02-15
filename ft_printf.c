@@ -6,7 +6,7 @@
 /*   By: sarmonte <sarmonte@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 12:34:13 by sarmonte          #+#    #+#             */
-/*   Updated: 2024/02/15 16:26:00 by sarmonte         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:07:58 by sarmonte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,7 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-		{
 			size += ft_print_character(str[i]);
-		}
 		i++;
 	}
 	va_end(argument);
